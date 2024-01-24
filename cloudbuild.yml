@@ -6,23 +6,23 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args:
-    - '-c'
-    - |
-      gsutil cp application.zip gs://alb23/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/  # Copy to GCS
+  - '-c'
+  - |
+    gsutil cp application.zip gs://alb23/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/  # Copy to GCS
 
-      gcloud compute ssh instance-2 --zone=us-central1-a --command='
-        cd /var/www/html &&
-        sudo rm -rf node_modules/* &&
-        sudo unzip -o /tmp/application.zip &&  # Unzip in a temporary location
-        sudo rm -rf node_modules/* &&
-        sudo npm cache clean --force &&
-        sudo npm install --legacy-peer-deps &&
-        sudo npm install swiper &&
-        sudo npm run build &&
-        cd /var/www/html/build &&
-        sudo pm2 start "npm run start" &&
-        sudo pm2 save
-      '  # Combine SSH commands for efficiency
+    gcloud compute ssh instance-2 --zone=us-central1-a --command='
+      cd /var/www/html &&
+      sudo rm -rf node_modules/* &&
+      sudo unzip -o /tmp/application.zip &&  # Unzip in a temporary location
+      sudo rm -rf node_modules/* &&
+      sudo npm cache clean --force &&
+      sudo npm install --legacy-peer-deps &&
+      sudo npm install swiper &&
+      sudo npm run build &&
+      cd /var/www/html/build &&
+      sudo pm2 start "npm run start" &&
+      sudo pm2 save
+    '  # Combine SSH commands for efficiency
 
 artifacts:
   objects:
