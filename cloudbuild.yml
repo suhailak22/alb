@@ -28,3 +28,7 @@ artifacts:
   objects:
     location: 'gs://alb23/Frontend/'  # Added closing quote
     paths: ['application.zip']
+
+ options:
+  logging: CLOUD_LOGGING_ONLY  # Or NONE to disable logs
+
