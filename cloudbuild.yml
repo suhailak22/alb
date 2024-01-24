@@ -8,7 +8,7 @@ steps:
   args:
   - '-c'
   - |
-    gsutil cp application.zip gs://geniearabia-backend/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/  # Copy to S3
+    gsutil cp application.zip gs://geniearabia-backend/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/  # Copy to GCS
 
     gcloud compute ssh instance-2 --zone=us-central1-a --command='
       cd /var/www/html &&
