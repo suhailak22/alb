@@ -22,6 +22,7 @@ steps:
           cd /var/www/html/build &&
           sudo pm2 start "npm run start" &&
           sudo pm2 save
+         #s
         '  # Combine SSH commands for efficiency
 
 artifacts:
