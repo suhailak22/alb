@@ -11,7 +11,7 @@ steps:
   - |
     gsutil cp application.zip gs://geniearabia-backend/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/  # Copy to S3
 
-    gcloud compute ssh my-vm-instance --zone=us-central1-a --command="
+    gcloud compute ssh my-vm-instance --zone=us-central1-a --command='
       cd /var/www/html &&
       sudo rm -rf node_modules/* &&
       sudo unzip -o /tmp/application.zip &&  # Unzip in a temporary location
@@ -21,11 +21,12 @@ steps:
       sudo npm install swiper &&
       sudo npm run build &&
       cd /var/www/html/build &&
-      sudo pm2 start 'npm run start' &&
+      sudo pm2 start "npm run start" &&
       sudo pm2 save
-    "  # Combine SSH commands for efficiency
+    '  # Combine SSH commands for efficiency
 
 artifacts:
   objects:
     location: 'gs://geniearabia-backend/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/'
     paths: ['application.zip']
+
