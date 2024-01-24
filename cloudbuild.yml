@@ -1,8 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']  # Install project dependencies
+
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']  # Run the build script
+
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args:
