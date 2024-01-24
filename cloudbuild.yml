@@ -8,7 +8,7 @@ steps:
   args:
   - '-c'
   - |
-    gsutil cp application.zip gs://geniearabia-backend/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/  # Copy to GCS
+    gsutil cp application.zip gs://alb23/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/  # Copy to GCS
 
     gcloud compute ssh instance-2 --zone=us-central1-a --command='
       cd /var/www/html &&
@@ -26,5 +26,5 @@ steps:
 
 artifacts:
   objects:
-    #location: 'gs://geniearabia-backend/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/'
-    #paths: ['application.zip']
+    location: 'gs://alb23/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/'
+    paths: ['application.zip']
