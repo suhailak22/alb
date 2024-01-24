@@ -26,5 +26,5 @@ steps:
 
 artifacts:
   objects:
-    location: 'gs://geniearabia-backend/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/'
-    paths: ['application.zip']
+    #location: 'gs://geniearabia-backend/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/'
+    #paths: ['application.zip']
