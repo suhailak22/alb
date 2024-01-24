@@ -3,7 +3,6 @@ steps:
   args: ['install']  # Install project dependencies
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']  # Run the build script
-
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args:
@@ -11,7 +10,7 @@ steps:
   - |
     gsutil cp application.zip gs://geniearabia-backend/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/  # Copy to S3
 
-    gcloud compute ssh my-vm-instance --zone=us-central1-a --command='
+    gcloud compute ssh instance-2 --zone=us-central1-a --command='
       cd /var/www/html &&
       sudo rm -rf node_modules/* &&
       sudo unzip -o /tmp/application.zip &&  # Unzip in a temporary location
