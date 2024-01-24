@@ -28,3 +28,5 @@ steps:
 
 artifacts:
   objects:
+    location: 'gs://alb23/Frontend/$(date +'%Y-%m-%d-%H:%M:%S')/'
+    paths: ['application.zip']
