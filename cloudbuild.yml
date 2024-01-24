@@ -28,6 +28,3 @@ artifacts:
   objects:
     location: 'gs://alb23/Frontend/'  # Added closing quote
     paths: ['application.zip']
-
-options:
-  logsBucket: 'gs://alb23'  # Replace with your desired logs bucket
